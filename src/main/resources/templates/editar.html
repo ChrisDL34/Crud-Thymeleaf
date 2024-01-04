@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header::header-seccion(titulo='Editar')}"></head>
+
+<body>
+
+<!-- Navbar -->
+<div th:replace="~{fragments/navbar::navegacion-seccion}"></div>
+<!-- Navbar -->
+
+<div class="container my-4 text-center">
+
+    <h3 class="display-4">Editar Contacto</h3>
+
+    <div class="container col-md-6 mx-auto">
+
+        <form th:action="@{/editar}" th:object="${contacto}" method="post">
+
+            <input type="hidden" th:field="*{idContacto}" />
+
+            <div class="form-group">
+                <label for="nombre_contacto">Nombre</label>
+                <input type="text" class="form-control" id="nombre_contacto" name="nombre" th:field="*{nombre}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="celular_contacto">Celular</label>
+                <input type="text" class="form-control" id="celular_contacto" name="celular" th:field="*{celular}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email_contacto">Email</label>
+                <input type="email" class="form-control" id="email_contacto" name="email" th:field="*{email}" required>
+            </div>
+
+            <div class="container my-4">
+                <button type="submit" class="btn btn-success btn-lg">Editar Contacto</button>
+                <a class="btn btn-secondary btn-lg" href="/" role="button">Regresar</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div th:replace="~{fragments/pie-pagina::pie-pagina-seccion}"></div>
+
+</body>
+
+</html>
